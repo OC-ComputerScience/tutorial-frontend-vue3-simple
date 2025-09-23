@@ -1,12 +1,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import TutorialServices from "../services/tutorialServices";
-import Utils from "../config/utils.js";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const valid = ref(false);
-const user = Utils.getStore("user");
+
 const tutorial = ref({
   id: null,
   title: "",
@@ -20,7 +19,7 @@ const saveTutorial = () => {
     title: tutorial.value.title,
     description: tutorial.value.description,
     published: true,
-    userId: user.userId,
+  
   };
   TutorialServices.create(data)
     .then((response) => {
@@ -37,9 +36,7 @@ const cancel = () => {
   router.push({ name: "tutorials" });
 };
 
-onMounted(() => {
-  user.value = Utils.getStore("user");
-});
+
 </script>
 
 <template>
