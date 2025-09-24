@@ -44,4 +44,6 @@ npm run dev
 ```
 npm run build
 ```
-
+7. For deployment to AWS set up repository secrects for the values in the .env for the AWS configurtation.
+   
+    - SERVER_SSH_KEY = '** SSH key from the PEM file for AWS EC2 instance **'
